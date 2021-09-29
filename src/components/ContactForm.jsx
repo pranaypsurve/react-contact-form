@@ -17,14 +17,14 @@ const ContactForm = () => {
 
     const handleForm = (e) => {
         e.preventDefault();
-        const xhr = new XMLHttpRequest();
-        alert(JSON.stringify(formName));
+        // const xhr = new XMLHttpRequest();
+        // alert(JSON.stringify(formName));
         setFormName({...formName,reset:true});
         resetForm();
-        // emailjs.sendForm('service_4qwd8nk','template_rmxprmc',e.target,'user_MAQF1kkeoGIWgQqYRgUYx')
-        // .then(res => {
-        //     console.log(res);
-        // }).catch((err)=>console.log(err));
+        emailjs.sendForm('service_4qwd8nk','template_rmxprmc',e.target,'user_MAQF1kkeoGIWgQqYRgUYx')
+        .then(res => {
+            console.log(res);
+        }).catch((err)=>console.log(err));
     }
      function resetForm(){
         const formInputNames = {
