@@ -2,10 +2,11 @@ import { useState } from "react";
 import FormFields from "./FormFields";
 import emailjs from "../../node_modules/emailjs-com";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "./contactForm.css"
 const ContactForm = () => {
     const formInputNames = {
-        reset:false,
+        reset: false,
         firstName: "",
         lastName: "",
         phoneNumer: "",
@@ -18,17 +19,18 @@ const ContactForm = () => {
     const handleForm = (e) => {
         e.preventDefault();
         // const xhr = new XMLHttpRequest();
-        // alert(JSON.stringify(formName));
-        setFormName({...formName,reset:true});
+        alert("Form Submited Check Your Mail");
+        setFormName({ ...formName, reset: true});
         resetForm();
-        emailjs.sendForm('service_4qwd8nk','template_rmxprmc',e.target,'user_MAQF1kkeoGIWgQqYRgUYx')
-        .then(res => {
-            console.log(res);
-        }).catch((err)=>console.log(err));
+
+        emailjs.sendForm('service_4qwd8nk', 'template_rmxprmc', e.target, 'user_MAQF1kkeoGIWgQqYRgUYx')
+            .then(res => {
+                console.log(res);
+            }).catch((err) => console.log(err));
     }
-     function resetForm(){
+    function resetForm() {
         const formInputNames = {
-            reset:false,
+            reset: false,
             firstName: "",
             lastName: "",
             phoneNumer: "",
