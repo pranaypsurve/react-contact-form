@@ -17,6 +17,7 @@ const ContactForm = () => {
 
     const handleForm = (e) => {
         e.preventDefault();
+        const xhr = new XMLHttpRequest();
         alert(JSON.stringify(formName));
         setFormName({...formName,reset:true});
         resetForm();
