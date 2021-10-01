@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FormFields from "./FormFields";
 import emailjs from "../../node_modules/emailjs-com";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -15,18 +15,25 @@ const ContactForm = () => {
         dob: ""
     }
     const [formName, setFormName] = useState(formInputNames);
+    useEffect(() => {
+        
 
+    });
+    const handleConat = () => {
+        console.log("click");
+    }
     const handleForm = (e) => {
         e.preventDefault();
-        // const xhr = new XMLHttpRequest();
-        alert("Form Submited Check Your Mail");
-        setFormName({ ...formName, reset: true});
-        resetForm();
 
-        emailjs.sendForm('service_4qwd8nk', 'template_rmxprmc', e.target, 'user_MAQF1kkeoGIWgQqYRgUYx')
-            .then(res => {
-                console.log(res);
-            }).catch((err) => console.log(err));
+        alert("Form Submited Check Your Mail");
+        setFormName({ ...formName, reset: true });
+        resetForm();
+        
+        // send mail using emailjs
+        // emailjs.sendForm('servr_id', 'template_id', e.target, 'user_id')
+        //     .then(res => {
+        //         console.log(res);
+        //     }).catch((err) => console.log(err));
     }
     function resetForm() {
         const formInputNames = {
@@ -40,12 +47,25 @@ const ContactForm = () => {
         }
         setFormName(formInputNames);
     }
+        (async () => {
+            const rawResponse = await fetch('http://localhost/api/hello.php', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({name:'pranay',age:25 })
+            });
+            const content = await rawResponse.json();
+          
+            console.log(content);
+          })();
     return (
         <div className="container">
             <div className="row">
                 <div className="offset-lg-3 col-lg-6 p-3">
                     <form method="POST" className="form" onSubmit={handleForm}>
-                        <h2 className="text-center pb-3">Contact Form</h2>
+                        <h2 className="text-center pb-3" onClick={handleConat}>Contact Form</h2>
                         <div className="row">
                             <FormFields formName={formName} setFormName={setFormName} />
                         </div>
