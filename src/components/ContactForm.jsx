@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import FormFields from "./FormFields";
-import emailjs from "../../node_modules/emailjs-com";
+// import emailjs from "../../node_modules/emailjs-com";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "./contactForm.css"
@@ -47,19 +47,19 @@ const ContactForm = () => {
         }
         setFormName(formInputNames);
     }
-        (async () => {
-            const rawResponse = await fetch('http://localhost/api/hello.php', {
-              method: 'POST',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({name:'pranay',age:25 })
-            });
-            const content = await rawResponse.json();
+        // (async () => {
+        //     const rawResponse = await fetch('http://localhost/api/hello.php', {
+        //       method: 'POST',
+        //       headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json'
+        //       },
+        //       body: JSON.stringify({name:'pranay',age:25 })
+        //     });
+        //     const content = await rawResponse.json();
           
-            console.log(content);
-          })();
+        //     console.log(content);
+        //   })();
     return (
         <div className="container">
             <div className="row">
