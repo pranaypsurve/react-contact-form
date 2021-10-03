@@ -65,7 +65,7 @@ const ContactForm = () => {
             <div className="row">
                 <div className="offset-lg-3 col-lg-6 p-3">
                     <form method="POST" className="form" onSubmit={handleForm}>
-                        <h2 className="text-center pb-3" onClick={handleConat}>Contact Forms</h2>
+                        <h2 className="text-center pb-3" onClick={handleConat}>Contact Form</h2>
                         <div className="row">
                             <FormFields formName={formName} setFormName={setFormName} />
                         </div>
